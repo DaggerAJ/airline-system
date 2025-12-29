@@ -23,7 +23,7 @@ class Booking(models.Model):
     held_at = models.DateTimeField(null=True, blank=True)
 
     def transition_to(self, new_status):
-        """Strictly validates state transitions[cite: 13, 19]."""
+        """Strictly validates state transitions"""
         allowed = {
             self.BookingStatus.INITIATED: [self.BookingStatus.SEAT_HELD, self.BookingStatus.CANCELLED], 
             self.BookingStatus.SEAT_HELD: [self.BookingStatus.PAYMENT_PENDING, self.BookingStatus.EXPIRED], 
